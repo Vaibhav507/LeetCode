@@ -18,7 +18,7 @@ public:
             head=ptr->next;
             ptr=ptr->next;
         }
-        while(ptr!=NULL&&ptr->next!=NULL)
+        while(ptr!=NULL && ptr->next!=NULL)
         {
             if(ptr->next->val==val)
             {
