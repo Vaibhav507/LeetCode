@@ -13,7 +13,7 @@ public:
         {
             arrR[ransomNote[i]]=arrR[ransomNote[i]]+1;
         }
-        for(int i=97;i<=122;i++)
+        for(int i=0;i<256;i++)
         {
             if(arrR[i]>arrM[i])
                 ans=false;
