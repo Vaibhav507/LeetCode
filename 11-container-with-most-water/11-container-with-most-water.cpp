@@ -8,11 +8,7 @@ public:
         int area=0;
         while(l<h)
         {
-            if(height[l]>height[h])
-                area=height[h]*(h-l);
-            else
-                area=height[l]*(h-l);
-            cout<<area<<" ";
+                area=min(height[h],height[l])*(h-l);
             if(area>max)
                 max=area;
             if(height[l]>height[h])
