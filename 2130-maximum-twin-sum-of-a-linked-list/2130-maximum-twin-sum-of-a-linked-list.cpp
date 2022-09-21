@@ -23,10 +23,9 @@ public:
         int i=0,j=arr.size()-1;
         while(i<=j)
         {
-            sum=arr[i]+arr[j];
+            sum=arr[i]+arr[j-i];
             max_amt=max(max_amt,sum);
             i++;
-            j--;
         }
         return max_amt;
     }
