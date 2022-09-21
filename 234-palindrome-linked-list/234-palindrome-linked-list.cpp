@@ -13,18 +13,20 @@ public:
     bool isPalindrome(ListNode* head) 
     {
         vector<int> normal;
-        vector<int> reversal;
         ListNode* ptr=head;
         while(ptr!=NULL)
         {
             normal.push_back(ptr->val);
-            reversal.push_back(ptr->val);
             ptr=ptr->next;
         }
-        reverse(normal.begin(),normal.end());
-        if(reversal==normal)
+        int i=0,j=normal.size()-1;
+        while(i<=j)
+        {
+            if(normal[i]!=normal[j])
+                return false;
+            i++;
+            j--;
+        }
             return true;
-        else
-            return false;
     }
 };
