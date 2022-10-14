@@ -14,14 +14,17 @@ public:
         if(!head -> next) return NULL;
         ListNode* s = head;
         ListNode* f = head;
-        while(f && f -> next){
+        while(f && f -> next)
+        {
             s = s -> next;
             f = f -> next -> next;
         }
-        if(s -> next == NULL){
+        if(s -> next == NULL)
+        {
             head -> next = NULL;
         }
-        else{
+        else
+        {
             s -> val = s -> next -> val;
             s -> next = s -> next -> next;
         }
