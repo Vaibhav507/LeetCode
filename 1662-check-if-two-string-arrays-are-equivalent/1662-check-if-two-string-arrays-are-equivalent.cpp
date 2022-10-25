@@ -1,18 +1,8 @@
 class Solution {
 public:
-    bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) 
-    {
-        string w1,w2;
-        for(auto i:word1)
-        {
-            w1 += i;
-        }
-        for(auto i:word2)
-        {
-            w2 += i;
-        }
-        if(w1 == w2)
-            return true;
-        return false;
+    bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
+        auto w1=reduce(word1.begin(),word1.end());
+        auto w2=reduce(word2.begin(),word2.end());
+        return (w1==w2);
     }
 };
