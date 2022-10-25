@@ -3,13 +3,13 @@ public:
     bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) 
     {
         string w1,w2;
-        for(int i=0;i<word1.size();i++)
+        for(auto i:word1)
         {
-            w1 = w1 + word1[i];
+            w1 += i;
         }
-        for(int i=0;i<word2.size();i++)
+        for(auto i:word2)
         {
-            w2 = w2 + word2[i];
+            w2 += i;
         }
         if(w1 == w2)
             return true;
