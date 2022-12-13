@@ -18,10 +18,7 @@ public:
         int l = maxDepth(root->left);
         int r = maxDepth(root->right);
         
-        if(abs(l - r)>1)
-            return false;
-        
-        return isBalanced(root->left) && isBalanced(root->right);
+        return abs(l-r)<=1 &&isBalanced(root->left) && isBalanced(root->right);
         
             
     }
