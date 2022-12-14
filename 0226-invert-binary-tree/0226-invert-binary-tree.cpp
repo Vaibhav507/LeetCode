@@ -11,22 +11,15 @@
  */
 class Solution {
 public:
-    bool isLeaf(TreeNode* root){
-        if(root->left == NULL & root->right == NULL)
-            return 1;
-        return 0;
-    }
-    TreeNode* invertTree(TreeNode* root) {
+
+    TreeNode* invertTree(TreeNode* root) 
+    {
         if(!root)
         return 0;
-
-        if(!isLeaf(root)){
-            TreeNode* temp;
-            temp = root->left;
-            root->left = root->right;
-            root->right = temp;
-        }
-
+        TreeNode* temp;
+        temp = root->left;
+        root->left = root->right;
+        root->right = temp;
         invertTree(root->left);
         invertTree(root->right);
 
