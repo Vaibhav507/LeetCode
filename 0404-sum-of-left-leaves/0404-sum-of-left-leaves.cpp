@@ -23,15 +23,13 @@ public:
 
     int sumOfLeftLeaves(TreeNode* root)
     {
-        int sum=0;
         if(root!=NULL)
         {
             if(isleaf(root->left))
-                sum=sum+root->left->val;
+                return root->left->val+sumOfLeftLeaves(root->right);
             else
-                sum=sum+sumOfLeftLeaves(root->left);
-            sum=sum+sumOfLeftLeaves(root->right);
+                return sumOfLeftLeaves(root->left)+sumOfLeftLeaves(root->right);
         }
-        return sum;
+        return 0;
     }
 };
