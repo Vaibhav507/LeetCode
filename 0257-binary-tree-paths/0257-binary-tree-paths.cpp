@@ -11,18 +11,13 @@
  */
 class Solution {
 public:
-    bool isleaf(TreeNode* root)
-    {
-        if(!root) return false;
-        if(root->right==NULL && root->left==NULL) return true;
-        return false;
-    }
+
 
     void big(TreeNode* root,vector<string> &a,vector<int> path)
     {
         if(!root) return ;
         path.push_back(root->val);
-        if(isleaf(root))
+        if(root->right==NULL && root->left==NULL)
         {
             string str="";
             for(int i=0;i<path.size();i++)
@@ -31,7 +26,6 @@ public:
             str.pop_back();
             a.push_back(str);
         }
-        
         big(root->left,a,path);
         big(root->right,a,path);
     }
@@ -40,9 +34,7 @@ public:
     {
         vector<string> a;
         vector<int> path;
-        if(!root) return a;
         big(root,a,path);
-        
         return a;
     }
 };
