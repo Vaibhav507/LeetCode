@@ -11,31 +11,25 @@
  */
 class Solution {
 public:
-       bool kyasame(TreeNode *s, TreeNode *t)
+    
+    bool isidentical(TreeNode* s, TreeNode* t)
     {
-        if (!s && !t) return true; // dono null haii true kardooo
-        if (!s || !t) return false; // ek null aur dusra nhi false kardo return
-        if (s->val != t->val) return false;  // value same nhi false kardo return 
+        if(!s && !t) return true;
+        if(!s || !t) return false;
+        if(s->val != t->val) return false;
         
-        return kyasame(s->left, t->left) && kyasame(s->right, t->right);
-        
+        return isidentical(s->left,t->left) && isidentical(s->right,t->right);
     }
     
-    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        // simple se funda haiiii mujhe har ek node ko dekhna haiii matlab ya to left se koii aisa subtree mil jaaye ya right seeeeee mil jaaye jisme pura subroot ho pura matlab pura hota haiiiii aisa nhi koiii chut jaaye
-        // chalo iska code likhooo pehle
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) 
+    {
+
         if(!root)
             return false;
-        if(kyasame(root,subRoot))
+        if(isidentical(root,subRoot))
             return true;
+             
+        return isSubtree(root->left,subRoot) || isSubtree(root->right,subRoot);   
         
-        
-        
-        
-        return isSubtree(root->left,subRoot) || isSubtree(root->right,subRoot);
-        
-    //agar ekk bhi true hoga toh true kardooo return     
     }
-    
-    
 };
