@@ -13,10 +13,13 @@ class Solution {
 public:
     void traverse(TreeNode* root,vector<int> &a)
     {
-        if(!root) return;
-        if(root->left==NULL && root->right==NULL) a.push_back(root->val);
+        if(root)
+        {
+            if(root->left==NULL && root->right==NULL) a.push_back(root->val);
         traverse(root->left,a);
         traverse(root->right,a);
+        }
+        
         
     }
     
