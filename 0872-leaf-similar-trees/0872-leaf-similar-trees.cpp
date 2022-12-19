@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    vector<int> ans1,ans2;
+    
     void traverse(TreeNode* root,vector<int> &a)
     {
         if(root)
@@ -26,6 +26,7 @@ public:
     
     bool leafSimilar(TreeNode* root1, TreeNode* root2) 
     {
+        vector<int> ans1,ans2;
         traverse(root1,ans1);
         traverse(root2,ans2);
         return (ans1 == ans2);
