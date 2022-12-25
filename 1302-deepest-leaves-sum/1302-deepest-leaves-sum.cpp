@@ -1,3 +1,4 @@
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -11,29 +12,39 @@
  */
 class Solution {
 public:
-    
-    int maxDepth(TreeNode* root) 
+    pair<int,int> ans = {0, INT_MIN};
+
+    bool isleaf(TreeNode* root)
     {
-        if(root==NULL) return 0;
-        return max(maxDepth(root->left),maxDepth(root->right)) + 1;
+        return !root->left && !root->right;
+    }
+
+    int sum = 0;
+
+    void traverse(TreeNode* node, int level)
+    {
+        if(!node)    return;
+
+        if(isleaf(node)) 
+        {
+            if(ans.first < level) 
+            {
+                ans.first = level;
+                ans.second = node->val;
+            }
+            else if(ans.first == level) ans.second += node->val;
+
+            return;
+        }
+        traverse(node->left, level + 1);
+        traverse(node->right, level + 1);
     }
     
-    void solve(TreeNode* root,int &ans,int i,int d)
-    {
-        if(!root)
-            return ;
-        
-        if(root->left==NULL && root->right==NULL && i==d)
-            ans=ans+root->val;
-        
-        solve(root->left,ans,i+1,d);
-        solve(root->right,ans,i+1,d);
-    }
-    int deepestLeavesSum(TreeNode* root) 
-    {
-        int d = maxDepth(root);
-        int ans = 0;
-        solve(root,ans,1,d);
-        return ans;
+    int deepestLeavesSum(TreeNode* root) {
+        traverse(root, 1);
+
+        root->left = root->right = NULL;
+
+        return ans.second;
     }
 };
