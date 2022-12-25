@@ -12,39 +12,32 @@
  */
 class Solution {
 public:
-    pair<int,int> ans = {0, INT_MIN};
-
-    bool isleaf(TreeNode* root)
+    int maxDepth(TreeNode* root) 
     {
-        return !root->left && !root->right;
+        if(root==NULL) return 0;
+        return max(maxDepth(root->left),maxDepth(root->right)) + 1;
     }
 
-    int sum = 0;
-
-    void traverse(TreeNode* node, int level)
+    void traverse(TreeNode* root, int level,vector<pair<int,int>> &ans)
     {
-        if(!node)    return;
-
-        if(isleaf(node)) 
-        {
-            if(ans.first < level) 
-            {
-                ans.first = level;
-                ans.second = node->val;
-            }
-            else if(ans.first == level) ans.second += node->val;
-
+        if(!root)    
             return;
-        }
-        traverse(node->left, level + 1);
-        traverse(node->right, level + 1);
+        ans.push_back({root->val,level});
+        traverse(root->left, level + 1,ans);
+        traverse(root->right, level + 1,ans);
     }
     
-    int deepestLeavesSum(TreeNode* root) {
-        traverse(root, 1);
+    int deepestLeavesSum(TreeNode* root) 
+    {
+        int d = maxDepth(root);
+        vector<pair<int,int>>  ans;
+        int sum=0;
+        traverse(root, 1,ans);
+        for(int i=0;i<ans.size();i++)
+            if(ans[i].second==d)
+                sum=sum+ans[i].first;
 
-        root->left = root->right = NULL;
 
-        return ans.second;
+        return sum;
     }
 };
