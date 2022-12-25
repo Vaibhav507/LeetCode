@@ -22,7 +22,8 @@ public:
     {
         if(!root)    
             return;
-        ans.push_back({root->val,level});
+        if(root->left==NULL && root->right==NULL)
+            ans.push_back({root->val,level});
         traverse(root->left, level + 1,ans);
         traverse(root->right, level + 1,ans);
     }
