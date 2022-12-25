@@ -41,9 +41,6 @@ public:
               deepestLeavesSum(root->left);
               deepestLeavesSum(root->right);
            }
-           
-        
-        
         return ans;
     }
 };
