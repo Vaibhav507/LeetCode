@@ -18,8 +18,8 @@ public:
         q.push(root);
         while(!q.empty())
         {
-            double temp=q.size();
-            double sum=0;
+            int temp=q.size();
+            long sum=0;
             for(int i=0;i<temp;i++)
             {
                 TreeNode* node = q.front();
@@ -30,7 +30,7 @@ public:
                 if(node->right)
                     q.push(node->right);
             }
-            ans.push_back(sum/temp);
+            ans.push_back(sum*1.00/temp);
     
         }
         return ans;
