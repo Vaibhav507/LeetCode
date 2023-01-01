@@ -11,22 +11,19 @@
  */
 class Solution {
 public:
-    vector<int> a;
-    void traverse(TreeNode* root,vector<int>& a)
+    int sum;
+    void traverse(TreeNode* root,int low,int high)
     {
         if(!root)
             return ;
-        a.push_back(root->val);
-        traverse(root->left,a);
-        traverse(root->right,a);
+        if(root->val>=low && root->val<=high)
+                sum+=root->val;
+        traverse(root->left,low,high);
+        traverse(root->right,low,high);
     }
     int rangeSumBST(TreeNode* root, int low, int high)
     {
-        int sum=0;
-        traverse(root,a);
-        for(int i=0;i<a.size();i++)
-            if(a[i]>=low && a[i]<=high)
-                sum+=a[i];
+        traverse(root,low,high);
         return sum;
     }
 };
