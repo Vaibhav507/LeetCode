@@ -3,9 +3,7 @@ public:
     int minDeletionSize(vector<string>& strs) 
     {
         int n=strs[0].size();
-    
         int ans=0;
-        
         for(int j=0;j<n;j++)
         {
             for(int i=1;i<strs.size();i++)
