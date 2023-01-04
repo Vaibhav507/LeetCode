@@ -21,7 +21,7 @@ public:
         if(!root)
             return a;
     
-        int cnt=-1;
+        int cnt=0;
     
         while(!q.empty())
         {
@@ -40,7 +40,7 @@ public:
                 ans.push_back(node->val);
             }
             cnt++;
-            if(cnt%2!=0)
+            if(cnt%2==0)
                 reverse(ans.begin(),ans.end());
 
                 a.push_back(ans);
