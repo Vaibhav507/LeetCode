@@ -11,25 +11,27 @@
  */
 class Solution {
 public:
-    int number;
-    int ans;
-    bool isleaf(TreeNode* a){
-        if(!a->left && !a->right)
-            return true;
-        return false;
-    }
-    void digits(TreeNode* a, int x){
-        if(!a){
-            number = x;
+    int answer=0;
+    void solve(TreeNode* root,int val)
+    {
+        if(!root)
+            return ;
+        val=val*10 + root->val;
+        
+        if(!root->left && !root->right)
+        {
+            answer+=val;
             return;
         }
-        if(a->left == NULL && a->right==NULL)
-            number += x;
-        if(a->left != NULL) digits(a->left, 10*x + a->left->val);
-        if(a->right != NULL) digits(a->right, 10*x + a->right->val);
+        solve(root->left,val);
+        solve(root->right,val);
+        
     }
-    int sumNumbers(TreeNode* root) {
-        digits(root,root->val);
-        return number;
+    
+    int sumNumbers(TreeNode* root) 
+    {
+        answer=0;
+        solve(root,0);
+        return answer;
     }
 };
