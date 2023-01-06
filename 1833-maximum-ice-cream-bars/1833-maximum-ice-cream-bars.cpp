@@ -12,9 +12,7 @@ public:
                 a++;
             }
             else
-            {
                 break;
-            }   
         }
         return a;
     }
