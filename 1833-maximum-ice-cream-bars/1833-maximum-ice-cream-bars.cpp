@@ -11,8 +11,6 @@ public:
                 coins-=costs[i];
                 a++;
             }
-            else
-                break;
         }
         return a;
     }
