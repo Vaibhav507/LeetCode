@@ -6,16 +6,15 @@ public:
         int a=0;
         for(int i=0;i<costs.size();i++)
         {
-            if(coins-costs[i]==0)
+            if(coins>=costs[i])
             {
-                a++;
-                break;
-            }
-            if(coins-costs[i]>0)
-            {
-                a++;
                 coins-=costs[i];
+                a++;
             }
+            else
+            {
+                break;
+            }   
         }
         return a;
     }
