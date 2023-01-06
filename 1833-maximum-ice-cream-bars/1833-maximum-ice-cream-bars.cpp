@@ -16,10 +16,7 @@ public:
                 a++;
                 coins-=costs[i];
             }
-            if(coins-costs[i]<0)
-            {
-                i++;
-            }  
+            
         }
         return a;
     }
