@@ -18,7 +18,6 @@ public:
             return 0;
         if(root->val%2==0)
         {
-            cout<<root->val<<endl;
             if(root->left)
             {
                 if(root->left->left==NULL)
