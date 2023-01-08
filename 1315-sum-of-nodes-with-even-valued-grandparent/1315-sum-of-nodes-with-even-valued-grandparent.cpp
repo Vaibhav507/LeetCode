@@ -16,9 +16,8 @@ public:
     {
         if(!root)
             return 0;
-        if(root->val%2==0)
-        {
-            if(root->left)
+        
+            if(root->left&&root->val%2==0)
             {
                 if(root->left->left==NULL)
                     sum+=0;
@@ -29,7 +28,7 @@ public:
                 else
                     sum+=root->left->right->val;
             }
-            if(root->right)
+            if(root->right&&root->val%2==0)
             {
                 if(root->right->left==NULL)
                     sum+=0;
@@ -40,7 +39,6 @@ public:
                 else
                     sum+=root->right->right->val;
             } 
-        }
         sumEvenGrandparent(root->left);
         sumEvenGrandparent(root->right);
         return sum;
