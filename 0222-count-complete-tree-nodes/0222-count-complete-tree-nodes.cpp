@@ -17,9 +17,6 @@ public:
     {
         if(!root)
             return 0;
-        countNodes(root->left);
-        countNodes(root->right);
-        height++;
-        return height;
+        return 1+countNodes(root->left)+countNodes(root->right);
     }
 };
