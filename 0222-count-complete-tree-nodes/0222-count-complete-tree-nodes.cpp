@@ -12,18 +12,14 @@
 class Solution {
 public:
     int height=0;
-    void calc(TreeNode* root)
-    {
-        if(!root)
-            return ;
-        calc(root->left);
-        calc(root->right);
-        height++;
-    }
 
     int countNodes(TreeNode* root)
     {
-        calc(root);
+        if(!root)
+            return 0;
+        countNodes(root->left);
+        countNodes(root->right);
+        height++;
         return height;
     }
 };
