@@ -39,12 +39,14 @@ public:
                 Node* node = q.front();
                 q.pop();
                 a.push_back(node->val);
-                for(int j=0;j<node->children.size();j++)
+                if(node->children.size()>0)
+                {
+                    for(int j=0;j<node->children.size();j++)
                     q.push(node->children[j]);
+                }
             }
             ans.push_back(a);
         }
-        
         return ans;
     }
 };
