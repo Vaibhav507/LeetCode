@@ -22,7 +22,7 @@ public:
         }
         reverse(a.begin(),a.end());
         for(int i=0;i<a.size();i++)
-            sum+=a[i]*pow(2,i);
+            sum=sum+ a[i]*(1<<i);
         return sum;
     }
 };
