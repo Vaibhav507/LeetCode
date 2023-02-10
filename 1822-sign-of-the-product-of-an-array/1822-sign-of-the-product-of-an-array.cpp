@@ -8,10 +8,7 @@ public:
             if(nums[i]<0)
                 neg++;
             if(nums[i]==0)
-            {
                 return 0;
-                break;
-            }
         }
         if(neg%2!=0)
             return -1;
