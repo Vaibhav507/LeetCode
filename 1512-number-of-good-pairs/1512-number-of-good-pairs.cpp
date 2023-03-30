@@ -12,7 +12,6 @@ public:
         {
             int a=it.second;
             sum+=((a)*(a-1)/2);
-            cout<<endl;
         }
 
 	return sum;
