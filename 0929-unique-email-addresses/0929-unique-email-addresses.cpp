@@ -4,27 +4,27 @@ public:
     {
         unordered_set<string> umap;
         int pos=0;
-        for(int i=0;i<emails.size();i++)
+        for(auto &s: emails)
         {
-            for(int j=0;j<emails[i].length();j++)
+            for(int i=0;i<s.length();i++)
             {
-                if(emails[i][j]=='+')
+                if(s[i]=='+')
                 {
-                    pos=j;
-                    while(emails[i][j]!='@')
-                        j++;
+                    pos=i;
+                    while(s[i]!='@')
+                        i++;
                 }
-                if(emails[i][j]=='@')
+                if(s[i]=='@')
                 {
                     if(pos!=0)
-                        emails[i].erase(emails[i].begin()+pos,emails[i].begin()+j);
+                        s.erase(s.begin()+pos,s.begin()+i);
                     break;
                 }
-                if(emails[i][j]=='.')
-                    emails[i].erase(emails[i].begin()+j);
+                if(s[i]=='.')
+                    s.erase(s.begin()+i);
             }
             pos=0;
-            umap.insert(emails[i]);
+            umap.insert(s);
         }
         return umap.size();
         
