@@ -24,11 +24,8 @@ public:
                     emails[i].erase(emails[i].begin()+j);
             }
             pos=0;
-        }
-        for(int i=0;i<emails.size();i++)
-            cout<<emails[i]<<endl;
-        for(int i=0;i<emails.size();i++)
             umap.insert(emails[i]);
+        }
         return umap.size();
         
     }
