@@ -6,7 +6,6 @@ public:
         {
             while(nums[c-1] != c)
                 swap(c, nums[c-1]); 
-            
         }              
         for(int i = 1; i <= size(nums); i++)
             if(i != nums[i-1])
