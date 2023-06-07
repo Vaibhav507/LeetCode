@@ -9,12 +9,13 @@ public:
             a.push_back(words);
         reverse(a.begin(),a.end());
         words="";
-        for(string ite:a)
+        for(int i=0;i<a.size();i++)
         {
-            words=words+ite;
+            words=words+a[i];
+            if(i==a.size()-1)
+                break;
             words=words+' ';
         }
-        words.erase(words.end()-1);
         return words;
     }
 };
