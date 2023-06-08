@@ -4,16 +4,11 @@ public:
     {
         int d=a|b;
         int count=0;
-        while(d || c)
+        while(a|| b || c)
         {
-            d=a|b;
-            bool a1=a&1;
-            bool b1=b&1;
-            bool c1=c&1;
-            bool d1=d&1;
-            if(c1)
+            if(c&1)
             {
-                if(d1)
+                if((a&1)|(b&1))
                 {  
                 }
                 else
@@ -21,13 +16,13 @@ public:
             }
             else
             {
-                if(d1 && a1 && b1)
+                if(((a&1)|(b&1)) && (a&1) && (b&1))
                 {
                     count=count+2;
                     cout<<"2"<<" ";
                     
                 }  
-                else if(d1 && a1 || b1)
+                else if(((a&1)|(b&1)) && (a&1) || (b&1))
                 {
                     count++;
                     cout<<"1"<<" ";
@@ -37,7 +32,6 @@ public:
             a=a>>1;
             b=b>>1;
             c=c>>1;
-            d=d>>1;
         }
         return count;
     }
