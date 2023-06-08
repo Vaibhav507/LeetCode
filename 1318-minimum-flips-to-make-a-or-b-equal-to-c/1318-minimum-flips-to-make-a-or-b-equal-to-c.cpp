@@ -16,13 +16,13 @@ public:
             }
             else
             {
-                if(((a&1)|(b&1)) && (a&1) && (b&1))
+                if((a&1)&&(b&1))
                 {
                     count=count+2;
                     cout<<"2"<<" ";
                     
                 }  
-                else if(((a&1)|(b&1)) && (a&1) || (b&1))
+                else if((a&1) || (b&1))
                 {
                     count++;
                     cout<<"1"<<" ";
