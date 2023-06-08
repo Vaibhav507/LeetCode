@@ -2,7 +2,6 @@ class Solution {
 public:
     int minFlips(int a, int b, int c) 
     {
-        int d=a|b;
         int count=0;
         while(a|| b || c)
         {
