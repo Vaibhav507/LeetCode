@@ -8,25 +8,15 @@ public:
         {
             if(c&1)
             {
-                if((a&1)|(b&1))
-                {  
-                }
-                else
+                if(!(a&1) && !(b&1))
                     count++;
             }
             else
             {
                 if((a&1)&&(b&1))
-                {
                     count=count+2;
-                    cout<<"2"<<" ";
-                    
-                }  
                 else if((a&1) || (b&1))
-                {
                     count++;
-                    cout<<"1"<<" ";
-                }
                     
             }
             a=a>>1;
