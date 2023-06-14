@@ -17,9 +17,11 @@ public:
     {
         if(!node)
             return;
+        
+        
+        traversal(node->left);
         arr.push_back(node->val);
         traversal(node->right);
-        traversal(node->left);
     }
     
     int getMinimumDifference(TreeNode* root) 
@@ -27,7 +29,6 @@ public:
         int temp;
         int mindiff=INT_MAX;
         traversal(root);
-        sort(arr.begin(),arr.end());
         for(int i=1;i<arr.size();i++)
         {
             temp=arr[i]-arr[i-1];
