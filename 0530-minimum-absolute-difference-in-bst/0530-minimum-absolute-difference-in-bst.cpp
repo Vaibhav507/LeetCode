@@ -31,8 +31,7 @@ public:
         traversal(root);
         for(int i=1;i<arr.size();i++)
         {
-            temp=arr[i]-arr[i-1];
-            mindiff=min(mindiff,temp);
+            mindiff=min(mindiff,(arr[i]-arr[i-1]));
         }
         return mindiff;
     }
