@@ -14,27 +14,23 @@ public:
     int maxLevelSum(TreeNode* root) 
     {
         queue<TreeNode*> q;
-        int sum=0;
-        int lev=1;
-        int currlev=1;
-        int max=INT_MIN;
+        int sum=0,lev=1,currlev=1,max=INT_MIN;
         q.push(root);
         
         while(!q.empty())
         {
             int size = q.size();
-            vector<int> a;
             for(int i = 0; i < size; i++)
             {
                 TreeNode* node = q.front();
                 q.pop();
-                sum=sum+node->val;
+                sum+=node->val;
                 if(node->left)
                     q.push(node->left);
                 if(node->right)
                     q.push(node->right);
             }
-            if(max<sum)
+            if(sum>max)
             {
                 lev=currlev;
                 max=sum;
