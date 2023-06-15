@@ -11,14 +11,13 @@
  */
 class Solution {
 public:
-    vector<vector<int>> levelOrder(TreeNode* root) 
+    int maxLevelSum(TreeNode* root) 
     {
-        vector<vector<int>> ans;
         queue<TreeNode*> q;
-        
-        if(!root)
-            return ans;
-        
+        int sum=0;
+        int lev=1;
+        int currlev=1;
+        int max=INT_MIN;
         q.push(root);
         
         while(!q.empty())
@@ -35,34 +34,17 @@ public:
                 if(node->right)
                     q.push(node->right);
             }
-            ans.push_back(a);
-        }
-        
-        return ans;
-    }
-    
-    int maxLevelSum(TreeNode* root) 
-    {
-        vector<vector<int>> list;
-        int sum=0;
-        vector<int> totalsum;
-        int max=INT_MIN,maxit;
-        list = levelOrder(root);
-        for(int i=0;i<list.size();i++)
-        {
-            for(int j=0;j<list[i].size();j++)
-                sum=sum+list[i][j];
-            totalsum.push_back(sum);
-            sum=0;
-        }
-        for(int i=0;i<totalsum.size();i++)
-        {
-            if(max<totalsum[i])
+            for(int i=0;i<a.size();i++)
+                sum=sum+a[i];
+            
+            if(max<sum)
             {
-                max=totalsum[i];
-                maxit=i;
+                lev=currlev;
+                max=sum;
             }
+            sum=0;
+            currlev++;
         }
-        return maxit+1;
+        return lev;
     }
 };
