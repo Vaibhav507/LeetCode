@@ -28,15 +28,12 @@ public:
             {
                 TreeNode* node = q.front();
                 q.pop();
-                a.push_back(node->val);
+                sum=sum+node->val;
                 if(node->left)
                     q.push(node->left);
                 if(node->right)
                     q.push(node->right);
             }
-            for(int i=0;i<a.size();i++)
-                sum=sum+a[i];
-            
             if(max<sum)
             {
                 lev=currlev;
