@@ -3,13 +3,14 @@ public:
     int minimumDifference(vector<int>& nums, int k) 
     {
         sort(nums.begin(),nums.end());
-        int res=nums[k-1]-nums[0];
-        if(nums.size()<=1)
-            return 0;
-        
-        for(int i=k;i<nums.size();i++)
+        int first=0;
+        int last=k-1;
+        int res=INT_MAX;
+        while(last<nums.size())
         {
-            res=min(res,nums[i]-nums[i-k+1]);
+            res=min(res,nums[last]-nums[first]);
+            first++;
+            last++;
         }
         return res;
             
