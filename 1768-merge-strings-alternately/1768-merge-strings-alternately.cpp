@@ -4,17 +4,33 @@ public:
     {
         string ans;
         int a=0,b=0;
-        int m=word1.length();
-        int n=word2.length();
-        while(a<m || b<n)
+        
+        while(a<word1.length() && b<word2.length())
         {
-            if(a<m)
-                ans+=word1[a];
-            if(b<n)
-                ans+=word2[b];
+            ans+=word1[a];
+            ans+=word2[b];
             a++;
             b++;
         }
+        
+        if(a!=word1.length())
+        {
+            while(a<word1.length())
+            {
+                ans+=word1[a];
+                a++;
+            }
+        }
+        
+        if(b!=word2.length())
+        {
+            while(b<word2.length())
+            {
+                ans+=word2[b];
+                b++;
+            }  
+        }
+        
         return ans;
             
     }
